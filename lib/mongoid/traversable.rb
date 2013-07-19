@@ -8,7 +8,12 @@ module Mongoid
     extend ActiveSupport::Concern
 
     included do
-      attr_accessor :_parent
+      def _parent
+        @__parent
+      end
+      def _parent=(val)
+        @__parent = val
+      end
     end
 
     # Get all child +Documents+ to this +Document+, going n levels deep if
